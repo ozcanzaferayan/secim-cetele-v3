@@ -98,7 +98,6 @@ const ClientPage = () => {
             <table
               width={"100%"}
               className="border-collapse border-[1px] border-slate-500 "
-              onClick={handleClick}
               cellPadding={0}
               cellSpacing={0}
             >
@@ -122,7 +121,6 @@ const ClientPage = () => {
             <table
               width={"100%"}
               className="border-collapse border-[1px] border-slate-500 "
-              onClick={handleClick}
               cellPadding={0}
               cellSpacing={0}
             >
@@ -156,19 +154,38 @@ const ClientPage = () => {
           >
             Arttır
           </button>
-          <button
-            className="bg-red-500 text-white px-2 py-1 rounded-md"
-            onClick={() => {
-              handleClick({
-                target: {
-                  tagName: "BUTTON",
-                  id: "tayyip-" + tayyipVoteCount,
-                },
-              });
-            }}
-          >
-            Azalt
-          </button>
+          <div className="flex gap-1">
+            <button
+              className="bg-red-500 text-white px-2 py-1 rounded-md"
+              onClick={() => {
+                handleClick({
+                  target: {
+                    tagName: "BUTTON",
+                    id: "tayyip-" + tayyipVoteCount,
+                  },
+                });
+              }}
+            >
+              Azalt
+            </button>
+            <button
+              className="bg-orange-500 text-white px-2 py-1 text-xs rounded-md"
+              onClick={() => {
+                const response = confirm(
+                  "Recep Tayyip Erdoğan oylarını sıfırlamak istediğinize emin misiniz?"
+                );
+                if (response) {
+                  setTayyipVotes(createGrid("tayyip"));
+                  localStorage.setItem(
+                    "tayyipVotes",
+                    JSON.stringify(createGrid("tayyip"))
+                  );
+                }
+              }}
+            >
+              Sıfırla
+            </button>
+          </div>
           <span>Toplam: {tayyipVoteCount}</span>
         </div>
         <div className="flex flex-col items-center w-full text-center gap-1">
@@ -185,19 +202,38 @@ const ClientPage = () => {
           >
             Arttır
           </button>
-          <button
-            className="bg-red-500 text-white px-2 py-1 rounded-md"
-            onClick={() => {
-              handleClick({
-                target: {
-                  tagName: "BUTTON",
-                  id: "kemal-" + kemalVoteCount,
-                },
-              });
-            }}
-          >
-            Azalt
-          </button>
+          <div className="flex gap-1">
+            <button
+              className="bg-red-500 text-white px-2 py-1 rounded-md"
+              onClick={() => {
+                handleClick({
+                  target: {
+                    tagName: "BUTTON",
+                    id: "kemal-" + kemalVoteCount,
+                  },
+                });
+              }}
+            >
+              Azalt
+            </button>
+            <button
+              className="bg-orange-500 text-white px-2 py-1 text-xs rounded-md"
+              onClick={() => {
+                const response = confirm(
+                  "Kemal Kılıçdaroğlu oylarını sıfırlamak istediğinize emin misiniz?"
+                );
+                if (response) {
+                  setKemalVotes(createGrid("kemal"));
+                  localStorage.setItem(
+                    "kemalVotes",
+                    JSON.stringify(createGrid("kemal"))
+                  );
+                }
+              }}
+            >
+              Sıfırla
+            </button>
+          </div>
           <span>Toplam: {kemalVoteCount}</span>
         </div>
       </div>

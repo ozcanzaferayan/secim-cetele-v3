@@ -13,9 +13,9 @@ const Cell = memo(function Cell(props: Props) {
         props.active ? "bg-red-500" : ""
       }`}
     >
-      <button id={props.id} className="w-full h-full">
+      <span id={props.id} className="w-full h-full">
         {props.children}
-      </button>
+      </span>
     </td>
   );
 });
