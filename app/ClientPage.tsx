@@ -94,7 +94,7 @@ const ClientPage = () => {
           <Space style={{ height: height }}>
             <table
               width={"100%"}
-              className="border-collapse border-[0.5px] border-slate-500 "
+              className="border-collapse border-[1px] border-slate-500 "
               onClick={handleClick}
               cellPadding={0}
               cellSpacing={0}
@@ -118,7 +118,7 @@ const ClientPage = () => {
           <Space style={{ height: height }}>
             <table
               width={"100%"}
-              className="border-collapse border-[0.5px] border-slate-500 "
+              className="border-collapse border-[1px] border-slate-500 "
               onClick={handleClick}
               cellPadding={0}
               cellSpacing={0}

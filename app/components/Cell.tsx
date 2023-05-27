@@ -9,7 +9,7 @@ type Props = {
 const Cell = memo(function Cell(props: Props) {
   return (
     <td
-      className={`text-center border-[0.5px] border-slate-700 text-[8px] w-5 ${
+      className={`text-center border-[1px] border-slate-700 text-[8px] w-5 ${
         props.active ? "bg-red-500" : ""
       }`}
     >
