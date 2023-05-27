@@ -1,9 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Space } from "react-zoomable-ui";
 import Cell from "./components/Cell";
+import dynamic from "next/dynamic";
+
+function Loading() {
+  return <div>Loading</div>;
+}
 
 const ClientPage = () => {
+  const Space = dynamic(
+    () => import("react-zoomable-ui").then((module) => module.Space),
+    { ssr: false }
+  );
+
   const [invalidVotes, setInvalidVotes] = useState("0");
   const { width, height } = { width: 200, height: 520 };
   const createGrid = (name: string) => {
@@ -81,53 +90,58 @@ const ClientPage = () => {
           KILIÇDAROĞLU
         </span>
       </div>
+
       <div className="flex gap-3">
         <div style={{ width: "100%", height: height, position: "relative" }}>
-          <Space style={{ height: height }}>
-            <table
-              width={"100%"}
-              className="border-collapse border-[0.5px] border-slate-500 "
-              onClick={handleClick}
-              cellPadding={0}
-              cellSpacing={0}
-            >
-              <tbody>
-                {tayyipVotes.map((row, i) => (
-                  <tr key={i}>
-                    {row.map((cell) => (
-                      <Cell key={cell.id} id={cell.id} active={cell.active}>
-                        {cell.text}
-                      </Cell>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </Space>
+          {Space && (
+            <Space style={{ height: height }}>
+              <table
+                width={"100%"}
+                className="border-collapse border-[0.5px] border-slate-500 "
+                onClick={handleClick}
+                cellPadding={0}
+                cellSpacing={0}
+              >
+                <tbody>
+                  {tayyipVotes.map((row, i) => (
+                    <tr key={i}>
+                      {row.map((cell) => (
+                        <Cell key={cell.id} id={cell.id} active={cell.active}>
+                          {cell.text}
+                        </Cell>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </Space>
+          )}
         </div>
 
         <div style={{ width: "100%", height: height, position: "relative" }}>
-          <Space style={{ height: height }}>
-            <table
-              width={"100%"}
-              className="border-collapse border-[0.5px] border-slate-500 "
-              onClick={handleClick}
-              cellPadding={0}
-              cellSpacing={0}
-            >
-              <tbody>
-                {kemalVotes.map((row, i) => (
-                  <tr key={i}>
-                    {row.map((cell) => (
-                      <Cell key={cell.id} id={cell.id} active={cell.active}>
-                        {cell.text}
-                      </Cell>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </Space>
+          {Space && (
+            <Space style={{ height: height }}>
+              <table
+                width={"100%"}
+                className="border-collapse border-[0.5px] border-slate-500 "
+                onClick={handleClick}
+                cellPadding={0}
+                cellSpacing={0}
+              >
+                <tbody>
+                  {kemalVotes.map((row, i) => (
+                    <tr key={i}>
+                      {row.map((cell) => (
+                        <Cell key={cell.id} id={cell.id} active={cell.active}>
+                          {cell.text}
+                        </Cell>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </Space>
+          )}
         </div>
       </div>
       <div className="flex gap-3">
