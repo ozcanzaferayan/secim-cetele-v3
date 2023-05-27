@@ -24,6 +24,8 @@ const ClientPage = () => {
   };
   const [tayyipVotes, setTayyipVotes] = useState(createGrid("tayyip"));
   const [kemalVotes, setKemalVotes] = useState(createGrid("kemal"));
+  const tayyipVoteCount = tayyipVotes.flat().filter((c) => c.active).length;
+  const kemalVoteCount = kemalVotes.flat().filter((c) => c.active).length;
 
   useEffect(() => {
     if (localStorage.getItem("tayyipVotes")) {
@@ -40,6 +42,7 @@ const ClientPage = () => {
 
   const handleClick = (e: any) => {
     const target = e.target;
+    console.log(e.target);
     if (target.tagName !== "BUTTON") {
       return;
     }
@@ -138,13 +141,65 @@ const ClientPage = () => {
           </Space>
         </div>
       </div>
-      <div className="flex gap-3">
-        <span className="w-full text-center">
-          Toplam: {tayyipVotes.flat().filter((c) => c.active).length}
-        </span>
-        <span className="w-full text-center">
-          Toplam: {kemalVotes.flat().filter((c) => c.active).length}
-        </span>
+      <div className="flex gap-3 mt-1">
+        <div className="flex flex-col items-center w-full text-center gap-1">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+            onClick={() => {
+              handleClick({
+                target: {
+                  tagName: "BUTTON",
+                  id: "tayyip-" + (tayyipVoteCount + 1),
+                },
+              });
+            }}
+          >
+            Arttır
+          </button>
+          <button
+            className="bg-red-500 text-white px-2 py-1 rounded-md"
+            onClick={() => {
+              handleClick({
+                target: {
+                  tagName: "BUTTON",
+                  id: "tayyip-" + tayyipVoteCount,
+                },
+              });
+            }}
+          >
+            Azalt
+          </button>
+          <span>Toplam: {tayyipVoteCount}</span>
+        </div>
+        <div className="flex flex-col items-center w-full text-center gap-1">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+            onClick={() => {
+              handleClick({
+                target: {
+                  tagName: "BUTTON",
+                  id: "kemal-" + (kemalVoteCount + 1),
+                },
+              });
+            }}
+          >
+            Arttır
+          </button>
+          <button
+            className="bg-red-500 text-white px-2 py-1 rounded-md"
+            onClick={() => {
+              handleClick({
+                target: {
+                  tagName: "BUTTON",
+                  id: "kemal-" + kemalVoteCount,
+                },
+              });
+            }}
+          >
+            Azalt
+          </button>
+          <span>Toplam: {kemalVoteCount}</span>
+        </div>
       </div>
 
       <div className="flex gap-3">
