@@ -94,7 +94,7 @@ const ClientPage = () => {
 
       <div className="flex gap-3">
         <div style={{ width: "100%", height: height, position: "relative" }}>
-          <Space style={{ height: height }}>
+          <div style={{ height: height }}>
             <table
               width={"100%"}
               className="border-collapse border-[1px] border-slate-500 "
@@ -113,11 +113,11 @@ const ClientPage = () => {
                 ))}
               </tbody>
             </table>
-          </Space>
+          </div>
         </div>
 
         <div style={{ width: "100%", height: height, position: "relative" }}>
-          <Space style={{ height: height }}>
+          <div style={{ height: height }}>
             <table
               width={"100%"}
               className="border-collapse border-[1px] border-slate-500 "
@@ -136,7 +136,7 @@ const ClientPage = () => {
                 ))}
               </tbody>
             </table>
-          </Space>
+          </div>
         </div>
       </div>
       <div className="flex gap-3 mt-1">
