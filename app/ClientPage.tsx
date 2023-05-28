@@ -90,7 +90,7 @@ const ClientPage = () => {
 
   return (
     <main className="lg:mx-96">
-      <div className="flex gap-3 sticky top-0 bg-white">
+      <div className="flex gap-3 sticky top-0 bg-white z-10">
         <span className="w-full text-center select-none text-xs">
           RECEP TAYYİP ERDOĞAN
         </span>
@@ -146,7 +146,7 @@ const ClientPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex gap-3 mt-1">
+      <div className="flex gap-3 mt-1 z-10">
         <div className="flex flex-col items-center w-full text-center gap-1">
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded-md select-none"
