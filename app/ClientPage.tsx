@@ -12,6 +12,7 @@ const Space = dynamic(
 );
 const ClientPage = () => {
   const [invalidVotes, setInvalidVotes] = useState("0");
+  const [ballotNumber, setBallotNumber] = useState("");
   const { width, height } = { width: 200, height: 520 };
   const createGrid = (name: string) => {
     return Array.from({ length: 40 }).map((_, i) =>
@@ -37,6 +38,16 @@ const ClientPage = () => {
       setKemalVotes(JSON.parse(localStorage.getItem("kemalVotes")!));
     } else {
       setKemalVotes(createGrid("kemal"));
+    }
+    if (localStorage.getItem("invalidVotes")) {
+      setInvalidVotes(localStorage.getItem("invalidVotes")!);
+    } else {
+      setInvalidVotes("0");
+    }
+    if (localStorage.getItem("ballotNumber")) {
+      setBallotNumber(localStorage.getItem("ballotNumber")!);
+    } else {
+      setBallotNumber("");
     }
   }, []);
 
@@ -238,14 +249,30 @@ const ClientPage = () => {
         </div>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 mt-3">
         <span className="w-full text-center select-none">
           Geçersiz oy:{" "}
           <input
             value={invalidVotes}
-            onChange={(e) => setInvalidVotes(e.target.value.toString())}
+            onChange={(e) => {
+              setInvalidVotes(e.target.value.toString());
+              localStorage.setItem("invalidVotes", e.target.value.toString());
+            }}
             type="tel"
             className="w-12 h-8 text-center text-blue-500
+            border-2 border-blue-500 rounded-md"
+          />
+        </span>
+        <span className="w-full text-center select-none">
+          Sandık no:{" "}
+          <input
+            value={ballotNumber}
+            onChange={(e) => {
+              setBallotNumber(e.target.value.toString());
+              localStorage.setItem("ballotNumber", e.target.value.toString());
+            }}
+            type="tel"
+            className="w-16 h-8 text-center text-blue-500
             border-2 border-blue-500 rounded-md"
           />
         </span>
