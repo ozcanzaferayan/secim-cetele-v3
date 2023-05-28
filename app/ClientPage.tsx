@@ -80,12 +80,12 @@ const ClientPage = () => {
   return (
     <main className="lg:mx-96">
       <div className="flex gap-3">
-        <span className="w-full text-center">
+        <span className="w-full text-center select-none">
           RECEP
           <br />
           TAYYİP ERDOĞAN
         </span>
-        <span className="w-full text-center">
+        <span className="w-full text-center select-none">
           KEMAL
           <br />
           KILIÇDAROĞLU
@@ -97,7 +97,7 @@ const ClientPage = () => {
           <div style={{ height: height }}>
             <table
               width={"100%"}
-              className="border-collapse border-[1px] border-slate-500 "
+              className="border-collapse border-[1px] border-slate-500 select-none"
               cellPadding={0}
               cellSpacing={0}
             >
@@ -120,7 +120,7 @@ const ClientPage = () => {
           <div style={{ height: height }}>
             <table
               width={"100%"}
-              className="border-collapse border-[1px] border-slate-500 "
+              className="border-collapse border-[1px] border-slate-500 select-none"
               cellPadding={0}
               cellSpacing={0}
             >
@@ -142,7 +142,7 @@ const ClientPage = () => {
       <div className="flex gap-3 mt-1">
         <div className="flex flex-col items-center w-full text-center gap-1">
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md select-none"
             onClick={() => {
               handleClick({
                 target: {
@@ -156,7 +156,7 @@ const ClientPage = () => {
           </button>
           <div className="flex gap-1">
             <button
-              className="bg-red-500 text-white px-2 py-1 rounded-md"
+              className="bg-red-500 text-white px-2 py-1 rounded-md select-none"
               onClick={() => {
                 handleClick({
                   target: {
@@ -169,7 +169,7 @@ const ClientPage = () => {
               Azalt
             </button>
             <button
-              className="bg-orange-500 text-white px-2 py-1 text-xs rounded-md"
+              className="bg-orange-500 text-white px-2 py-1 text-xs rounded-md select-none"
               onClick={() => {
                 const response = confirm(
                   "Recep Tayyip Erdoğan oylarını sıfırlamak istediğinize emin misiniz?"
@@ -186,11 +186,11 @@ const ClientPage = () => {
               Sıfırla
             </button>
           </div>
-          <span>Toplam: {tayyipVoteCount}</span>
+          <span className="select-none">Toplam: {tayyipVoteCount}</span>
         </div>
         <div className="flex flex-col items-center w-full text-center gap-1">
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md select-none"
             onClick={() => {
               handleClick({
                 target: {
@@ -204,7 +204,7 @@ const ClientPage = () => {
           </button>
           <div className="flex gap-1">
             <button
-              className="bg-red-500 text-white px-2 py-1 rounded-md"
+              className="bg-red-500 text-white px-2 py-1 rounded-md select-none"
               onClick={() => {
                 handleClick({
                   target: {
@@ -217,7 +217,7 @@ const ClientPage = () => {
               Azalt
             </button>
             <button
-              className="bg-orange-500 text-white px-2 py-1 text-xs rounded-md"
+              className="bg-orange-500 text-white px-2 py-1 text-xs rounded-md select-none"
               onClick={() => {
                 const response = confirm(
                   "Kemal Kılıçdaroğlu oylarını sıfırlamak istediğinize emin misiniz?"
@@ -234,12 +234,12 @@ const ClientPage = () => {
               Sıfırla
             </button>
           </div>
-          <span>Toplam: {kemalVoteCount}</span>
+          <span className="select-none">Toplam: {kemalVoteCount}</span>
         </div>
       </div>
 
       <div className="flex gap-3">
-        <span className="w-full text-center">
+        <span className="w-full text-center select-none">
           Geçersiz oy:{" "}
           <input
             value={invalidVotes}
