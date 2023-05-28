@@ -245,7 +245,8 @@ const ClientPage = () => {
             value={invalidVotes}
             onChange={(e) => setInvalidVotes(e.target.value.toString())}
             type="tel"
-            className="w-12 h-8 text-center text-blue-500"
+            className="w-12 h-8 text-center text-blue-500
+            border-2 border-blue-500 rounded-md"
           />
         </span>
       </div>
