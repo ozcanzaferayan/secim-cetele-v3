@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Cell from "./components/Cell";
 import dynamic from "next/dynamic";
-
+import { Eraser } from "lucide-react";
 function Loading() {
   return <div>Loading</div>;
 }
@@ -90,16 +90,12 @@ const ClientPage = () => {
 
   return (
     <main className="lg:mx-96">
-      <div className="flex gap-3">
-        <span className="w-full text-center select-none">
-          RECEP
-          <br />
-          TAYYİP ERDOĞAN
+      <div className="flex gap-3 sticky top-0 bg-white">
+        <span className="w-full text-center select-none text-xs">
+          RECEP TAYYİP ERDOĞAN
         </span>
-        <span className="w-full text-center select-none">
-          KEMAL
-          <br />
-          KILIÇDAROĞLU
+        <span className="w-full text-center select-none text-xs">
+          KEMAL KILIÇDAROĞLU
         </span>
       </div>
 
@@ -167,7 +163,7 @@ const ClientPage = () => {
           </button>
           <div className="flex gap-1">
             <button
-              className="bg-red-500 text-white px-2 py-1 rounded-md select-none"
+              className="bg-orange-500 text-white px-2 py-1 rounded-md select-none text-sm"
               onClick={() => {
                 handleClick({
                   target: {
@@ -180,7 +176,7 @@ const ClientPage = () => {
               Azalt
             </button>
             <button
-              className="bg-orange-500 text-white px-2 py-1 text-xs rounded-md select-none"
+              className="bg-red-500 text-white px-2 py-1 text-xs rounded-md select-none"
               onClick={() => {
                 const response = confirm(
                   "Recep Tayyip Erdoğan oylarını sıfırlamak istediğinize emin misiniz?"
@@ -194,7 +190,7 @@ const ClientPage = () => {
                 }
               }}
             >
-              Sıfırla
+              <Eraser color="white" size={12} />
             </button>
           </div>
           <span className="select-none">Toplam: {tayyipVoteCount}</span>
@@ -215,7 +211,7 @@ const ClientPage = () => {
           </button>
           <div className="flex gap-1">
             <button
-              className="bg-red-500 text-white px-2 py-1 rounded-md select-none"
+              className="bg-orange-500 text-white px-2 py-1 rounded-md select-none text-xs"
               onClick={() => {
                 handleClick({
                   target: {
@@ -228,7 +224,7 @@ const ClientPage = () => {
               Azalt
             </button>
             <button
-              className="bg-orange-500 text-white px-2 py-1 text-xs rounded-md select-none"
+              className="bg-red-500 text-white px-2 py-1 text-xs rounded-md select-none"
               onClick={() => {
                 const response = confirm(
                   "Kemal Kılıçdaroğlu oylarını sıfırlamak istediğinize emin misiniz?"
@@ -242,14 +238,14 @@ const ClientPage = () => {
                 }
               }}
             >
-              Sıfırla
+              <Eraser color="white" size={12} />
             </button>
           </div>
           <span className="select-none">Toplam: {kemalVoteCount}</span>
         </div>
       </div>
 
-      <div className="flex gap-3 mt-3">
+      <div className="flex gap-3 mt-1">
         <span className="w-full text-center select-none">
           Geçersiz oy:{" "}
           <input
